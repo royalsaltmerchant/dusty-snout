@@ -1,0 +1,134 @@
+:root {
+  --bg-color: #212225;
+  /* --bg-nav-color: #182029; */
+  /* --bg-nav-color-dark: rgb(40, 50, 65); */
+  --white: #e2e2e2;
+  --gray: #b8b8b8;
+  --dark-gray: #707070;
+  --blue: #23abef;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--bg-color);
+  font-family: serif;
+  font-size: 20px;
+  overscroll-behavior: none;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+small {
+  font-size: 12px;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100px;
+  background-color: var(--white);
+  padding: 2px
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--blue);
+}
+
+button a {
+  all: unset;
+}
+
+button a:hover {
+  text-decoration: none;
+}
+
+.playPauseButton {
+  background-color: var(--bg-color);
+  font: inherit;
+  font-size: 30px;
+  color: inherit;
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+
+.playPauseButton:hover {
+  background-color: var(--bg-color);
+  color: var(--blue);
+}
+
+.album-art-container {
+  width: fit-content;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.album-cover {
+  width: 100vw;
+  max-width: 500px;
+}
+
+.pwr-btns-container {
+  display: flex;
+  margin-right: 10px;
+}
+
+figure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+figcaption {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.audio-player {
+  width: 70%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  cursor: pointer;
+  position: relative;
+  height: 10px;
+  background-color: var(--white);
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  border-radius: 30px;
+  background-color: var(--blue);
+}
