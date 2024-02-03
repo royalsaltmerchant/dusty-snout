@@ -93,7 +93,10 @@ button a:hover {
 
 .pwr-btns-container {
   display: flex;
-  margin-right: 10px;
+}
+
+.pwr-btns-container button {
+  margin-right: 5px;
 }
 
 figure {
