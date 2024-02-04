@@ -1,8 +1,7 @@
 let audioPlayers = document.querySelectorAll(".audio-player");
-let playAllButton = document.getElementById('playAllButton');
 let currentIndex = 0; // To keep track of the current audio index
 
-audioPlayers.forEach((player) => {
+audioPlayers.forEach((player, index) => {
   let audio = player.querySelector(".audio-element");
   let playPauseButton = player.querySelector(".playPauseButton");
   let progress = player.querySelector(".progress");
@@ -32,12 +31,17 @@ audioPlayers.forEach((player) => {
     progress.style.width = position * 100 + "%";
   });
 
-  audio.addEventListener('ended', function() {
+  audio.addEventListener("ended", function () {
     audio.currentTime = 0;
     audio.pause();
-    let playPauseButton = audio.closest('.audio-player').querySelector('.playPauseButton');
+    let playPauseButton = audio
+      .closest(".audio-player")
+      .querySelector(".playPauseButton");
+    // Move to next audio after one finishes
+    let nextIndex = index + 1;
+    playAudioByIndex(nextIndex);
     playPauseButton.textContent = "⏵︎";
-});
+  });
 
   player.querySelector(".progress-bar").addEventListener("click", function (e) {
     let rect = this.getBoundingClientRect();
@@ -46,7 +50,6 @@ audioPlayers.forEach((player) => {
   });
 });
 
-// Function to play an audio by index
 function playAudioByIndex(index) {
   if (index >= audioPlayers.length) {
     currentIndex = 0; // Reset or stop when all audios have been played
@@ -60,7 +63,8 @@ function playAudioByIndex(index) {
   // Pause currently playing audio, if any
   document.querySelectorAll(".audio-element").forEach((el) => {
     el.pause();
-    el.closest(".audio-player").querySelector(".playPauseButton").textContent = "⏵︎";
+    el.closest(".audio-player").querySelector(".playPauseButton").textContent =
+      "⏵︎";
   });
 
   // Play the selected audio
@@ -68,19 +72,3 @@ function playAudioByIndex(index) {
   playPauseButton.textContent = "⏸︎";
   currentIndex = index; // Update the current index
 }
-
-// Listen for the Play All button click
-playAllButton.addEventListener('click', function() {
-  playAudioByIndex(0); // Start from the first audio
-});
-
-// Add an 'ended' event listener to each audio for auto-playing the next one
-audioPlayers.forEach((player, index) => {
-  let audio = player.querySelector(".audio-element");
-
-  audio.addEventListener('ended', function() {
-    // Move to next audio after one finishes
-    let nextIndex = index + 1;
-    playAudioByIndex(nextIndex);
-  });
-});
