@@ -135,3 +135,14 @@ figcaption {
   border-radius: 30px;
   background-color: var(--blue);
 }
+
+.time-tooltip {
+  position: absolute;
+  bottom: 20px; /* Adjust this value to position the tooltip above the cursor */
+  transform: translateX(-50%);
+  display: none; /* Initially hidden */
+  padding: 2px 5px; /* Small padding around the text */
+  border-radius: 5px; /* Optional: for styled corners */
+  font-size: 12px; /* Adjust as needed */
+  white-space: nowrap; /* Ensure the text does not wrap */
+}
