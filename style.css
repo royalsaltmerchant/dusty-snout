@@ -63,7 +63,7 @@ button a:hover {
   text-decoration: none;
 }
 
-.playPauseButton {
+.play-pause-button {
   background-color: var(--bg-color);
   font: inherit;
   font-size: 30px;
@@ -73,7 +73,7 @@ button a:hover {
   border: none;
 }
 
-.playPauseButton:hover {
+.play-pause-button:hover {
   background-color: var(--bg-color);
   color: var(--blue);
 }
